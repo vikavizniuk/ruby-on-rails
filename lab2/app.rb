@@ -3,6 +3,9 @@ require_relative 'book_manager'
 class App
   JSON_FILE = 'library.json'
   YAML_FILE = 'library.yaml'
+  STATUS_OPTIONS = BookManager::STATUS.join(', ')
+  STATUS_PROMPT = "Статус (#{STATUS_OPTIONS}): "
+  NEW_STATUS_PROMPT = "Новий статус (#{STATUS_OPTIONS}, Enter якщо без змін): "
 
   def initialize
     @manager = load_collection
@@ -93,7 +96,7 @@ class App
     print 'Жанр: '
     genre = gets.chomp
 
-    print "Статус (#{BookManager::STATUS.join(', ')}): "
+    print STATUS_PROMPT
     status = gets.chomp
 
     @manager.add_book(title, author, genre, status)
@@ -112,7 +115,7 @@ class App
     print 'Новий жанр (Enter якщо без змін): '
     genre = gets.chomp
 
-    print "Новий статус (#{BookManager::STATUS.join(', ')}, Enter якщо без змін): "
+    print NEW_STATUS_PROMPT
     status = gets.chomp
 
     new_data = {}
@@ -143,7 +146,7 @@ class App
   end
 
   def filter_by_status
-    print "Статус (#{BookManager::STATUS.join(', ')}): "
+    print STATUS_PROMPT
     status = gets.chomp
     print_collection(@manager.filter_by_status(status))
   end
