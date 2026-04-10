@@ -1,0 +1,21 @@
+---
+1: !ruby/object:Book
+  title: Кобзар
+  authors:
+  - Шевченко
+  genres: []
+  status: read
+2: !ruby/object:Book
+  title: Тигролови
+  authors:
+  - Іван Багряний
+  genres:
+  - Пригоди
+  status: want_to_read
+3: !ruby/object:Book
+  title: jjgbu
+  authors:
+  - ihih
+  genres:
+  - hik
+  status: read
